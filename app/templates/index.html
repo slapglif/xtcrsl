@@ -1,0 +1,52 @@
+﻿<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<script src="http://kc1.freebieservers.com/fastdl/kush/xtcr/js/smart-table.js"></script>
+
+	<link rel="stylesheet" href="static/app.css">
+	<link rel="stylesheet" href="static/bootstrap.css">
+
+	 <script src="/static/pace.js"></script>
+  	<link href="/static/pace-theme.css" rel="stylesheet" />
+
+	<title>xTcR Servers</title>
+</head>
+<body>
+
+
+			<div class="panel-body">
+
+			<table id="server-data" class="table table-striped">
+				<thead>
+				<tr>
+					<th>GameType</th>
+					<th>Server Name</th>
+					<th>IP Address</th>
+					<th>Map</th>
+					<th>Players</th>
+				</tr>
+				</thead>
+				<tbody>
+				{% if datas %}
+				{% for data in datas %}
+				<tr>
+					<td>{{data.type}}</td>
+					<td>{{data.hostname}}</td>
+					<td><a href="steam://connect/{{data.ip}}:{{data.port}}">{{data.ip}}:{{data.port}}</a></td>
+					<td>{{data.map}}</td>
+					<td>{{data.curplayers}}/{{data.maxplayers}}</td>
+				</tr>
+				{% endfor %}
+
+				{% endif %}
+				</tbody>
+			</table>
+
+		</div>
+
+</body>
+</html>
